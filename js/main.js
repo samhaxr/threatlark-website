@@ -1,4 +1,4 @@
-/* ThreatLark site — vanilla JS, no dependencies */
+/* ThreatLark site: vanilla JS, no dependencies */
 (function () {
   'use strict';
   var doc = document.documentElement;
@@ -114,9 +114,7 @@
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   }
 
-  /* Request-a-demo form: opens the visitor's email client with the details pre-filled.
-     TODO: swap for a form service (Formspree, Basin, Netlify Forms, etc.) if you want
-     submissions without relying on the visitor's mail client — see README. */
+  /* Request-a-demo form: opens the visitor's email client with the details pre-filled. */
   var form = document.getElementById('demo-form');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -139,6 +137,94 @@
       window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       var ok = document.getElementById('form-status');
       if (ok) { ok.hidden = false; ok.focus(); }
+    });
+  }
+
+  /* Screenshot gallery: thumbnails switch the featured screenshot */
+  document.querySelectorAll('[data-gallery]').forEach(function (g) {
+    var items = [].slice.call(g.querySelectorAll('[data-g-item]'));
+    var thumbs = [].slice.call(g.querySelectorAll('[data-g-thumb]'));
+    if (!items.length || items.length !== thumbs.length) return;
+    g.classList.add('is-js');
+    function show(n) {
+      items.forEach(function (it, i) { it.hidden = i !== n; });
+      thumbs.forEach(function (t, i) { t.setAttribute('aria-pressed', i === n ? 'true' : 'false'); });
+    }
+    thumbs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+    show(0);
+  });
+
+  /* Lightbox for product screenshots: accessible modal, no dependencies */
+  var triggers = document.querySelectorAll('a[data-lightbox]');
+  if (triggers.length) {
+    var lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.hidden = true;
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Screenshot viewer');
+    lb.innerHTML =
+      '<div class="lb-backdrop" data-lb-close></div>' +
+      '<figure class="lb-fig"><img class="lb-img" alt="">' +
+      '<figcaption class="lb-cap"><span class="lb-cap-text"></span><small>Pinch to zoom, or rotate your device for a wider view.</small></figcaption></figure>' +
+      '<button type="button" class="lb-close" aria-label="Close screenshot viewer">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('.lb-img');
+    var lbCap = lb.querySelector('.lb-cap-text');
+    var lbClose = lb.querySelector('.lb-close');
+    var lastFocus = null;
+    var bgNodes = [];
+
+    function setBackground(on) {
+      if (on) {
+        bgNodes = [].filter.call(document.body.children, function (el) { return el !== lb && el.tagName !== 'SCRIPT'; });
+        bgNodes.forEach(function (el) { el.setAttribute('inert', ''); el.setAttribute('aria-hidden', 'true'); });
+      } else {
+        bgNodes.forEach(function (el) { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); });
+        bgNodes = [];
+      }
+    }
+    function openLb(a) {
+      var img = a.querySelector('img');
+      var fig = a.closest('figure');
+      var cap = fig && fig.querySelector('figcaption');
+      lastFocus = a;
+      lbImg.src = a.getAttribute('href');
+      lbImg.alt = img ? img.alt : '';
+      lbCap.textContent = cap ? cap.textContent : (img ? img.alt : '');
+      var sw = window.innerWidth - document.documentElement.clientWidth;
+      if (sw > 0) document.body.style.paddingRight = sw + 'px';
+      document.documentElement.classList.add('lb-open');
+      lb.hidden = false;
+      setBackground(true);
+      lbClose.focus();
+    }
+    function closeLb() {
+      if (lb.hidden) return;
+      lb.hidden = true;
+      lbImg.removeAttribute('src');
+      document.documentElement.classList.remove('lb-open');
+      document.body.style.paddingRight = '';
+      setBackground(false);
+      if (lastFocus) lastFocus.focus();
+      lastFocus = null;
+    }
+    triggers.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        openLb(a);
+      });
+    });
+    lb.addEventListener('click', function (e) {
+      if (e.target === lbImg || e.target.closest('.lb-cap')) return;
+      closeLb();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
+      else if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
     });
   }
 })();

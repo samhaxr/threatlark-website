@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Security — ThreatLark</title>
+<title>Security | ThreatLark</title>
 <meta name="description" content="ThreatLark security model: Argon2id, TOTP MFA, WebAuthn passkeys, Microsoft SSO, per-tool RBAC, encrypted database, and a hash-chained tamper-evident audit log.">
 <meta name="theme-color" content="#1E1B4B">
 <link rel="canonical" href="https://www.example.com/security.html">
@@ -12,14 +12,14 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ThreatLark">
-<meta property="og:title" content="Security — ThreatLark">
+<meta property="og:title" content="Security | ThreatLark">
 <meta property="og:description" content="ThreatLark security model: Argon2id, TOTP MFA, WebAuthn passkeys, Microsoft SSO, per-tool RBAC, encrypted database, and a hash-chained tamper-evident audit log.">
 <meta property="og:url" content="https://www.example.com/security.html">
 <meta property="og:image" content="https://www.example.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Security — ThreatLark">
+<meta name="twitter:title" content="Security | ThreatLark">
 <meta name="twitter:description" content="ThreatLark security model: Argon2id, TOTP MFA, WebAuthn passkeys, Microsoft SSO, per-tool RBAC, encrypted database, and a hash-chained tamper-evident audit log.">
 <meta name="twitter:image" content="https://www.example.com/assets/img/og-image.png">
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,11 +46,11 @@
   <div class="container">
     <p class="crumbs"><a href="index.html">Home</a> / Security</p>
     <h1>Enterprise-grade security, built in</h1>
-    <p class="lead">A security product has to be secure itself. ThreatLark ships with a hardened authentication stack, tamper-evident auditing and encryption at rest &mdash; in front of every tool.</p>
+    <p class="lead">A security product has to be secure itself. ThreatLark ships with a hardened authentication stack, tamper-evident auditing and encryption at rest, in front of every tool.</p>
   </div>
 </section>
 <section class="feature" id="authentication"><div class="container"><div class="section-head"><span class="kicker">Authentication</span><h2>Strong identity, layered</h2><p>Password, second factor and SSO options, with brute-force defenses on every path.</p></div><div class="grid g3">
-<article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></svg></div><h3>Argon2id hashing</h3><p>Passwords are hashed with Argon2id &mdash; memory-hard and GPU-resistant.</p></article>
+<article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></svg></div><h3>Argon2id hashing</h3><p>Passwords are hashed with Argon2id: memory-hard and GPU-resistant.</p></article>
 <article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18h2"/></svg></div><h3>TOTP multi-factor</h3><p>Authenticator-app codes (Microsoft/Google Authenticator, Authy). The first-run admin must replace the temporary password and enroll MFA before doing anything else.</p></article>
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="4"/><path d="M2.5 21c0-3.6 2.9-6 6.5-6 1.2 0 2.3.3 3.2.7M18 14v7M18 17h3M18 20h3"/></svg></div><h3>WebAuthn passkeys</h3><p>Hardware and platform authenticators can be added as a second factor from Account Settings.</p></article>
 <article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="8" height="8" rx="1"/><rect x="12.5" y="3.5" width="8" height="8" rx="1"/><rect x="3.5" y="12.5" width="8" height="8" rx="1"/><rect x="12.5" y="12.5" width="8" height="8" rx="1"/></svg></div><h3>Microsoft SSO</h3><p>Optional OIDC sign-in with Microsoft Entra ID. It is invite-only: only users an admin has explicitly enabled for SSO can sign in, and the admin account never uses SSO.</p></article>
@@ -63,8 +63,8 @@
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Encrypted database</h3><p>The whole database is an encrypted libSQL file. A stolen disk image, copied file or misplaced backup exposes nothing without the key.</p></article>
 <article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4M12 15.5v2"/></svg></div><h3>Secrets at rest</h3><p>MFA secrets, integration API keys and remote-backup credentials are encrypted with AES-256-GCM, and the key can be rotated from the admin panel.</p></article>
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg></div><h3>Encrypted backups</h3><p>Backups are wrapped in a second AES-256-GCM layer and can be pushed to SSH/SFTP targets on a schedule.</p></article>
-</div><div class="callout">Database encryption protects a powered-off or copied database file. It does not protect a running process (which necessarily holds the key) or a compromised root account &mdash; so keep the key in a password manager or secrets vault.</div></div></section><section class="feature" id="audit"><div class="container"><div class="section-head"><span class="kicker">Audit &amp; integrity</span><h2>A tamper-evident record of everything</h2><p>Know who did what &mdash; and prove the record has not been altered.</p></div><div class="grid g2"><div><ul class="checks">
-<li>Every sensitive action &mdash; logins, MFA events, scans executed (with targets and finding counts), group changes, password changes &mdash; is written to the audit log</li>
+</div><div class="callout">Database encryption protects a powered-off or copied database file. It does not protect a running process (which necessarily holds the key) or a compromised root account, so keep the key in a password manager or secrets vault.</div></div></section><section class="feature" id="audit"><div class="container"><div class="section-head"><span class="kicker">Audit &amp; integrity</span><h2>A tamper-evident record of everything</h2><p>Know who did what, and prove the record has not been altered.</p></div><div class="grid g2"><div><ul class="checks">
+<li>Every sensitive action (logins, MFA events, scans executed with targets and finding counts, group changes, password changes) is written to the audit log</li>
 <li>Each row is <strong>linked to the previous by hash</strong>, forming a chain; a <strong>Verify chain</strong> action proves nothing was altered</li>
 <li>The audit log is deliberately excluded from data-retention pruning, because deleting old rows would break the chain</li>
 <li>Filter by user or event type and export to CSV</li></ul></div>

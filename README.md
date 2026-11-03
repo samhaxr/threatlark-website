@@ -1,6 +1,6 @@
 # ThreatLark marketing site
 
-A fast, professional, single-product static website for **ThreatLark** — plain HTML, CSS and
+A fast, professional, single-product static website for **ThreatLark** - plain HTML, CSS and
 vanilla JavaScript. No build step, no framework, no third-party requests (fonts are self-hosted).
 Built to be hosted on **GitHub Pages** with a custom domain bought at **Namecheap**.
 
@@ -13,7 +13,7 @@ Built to be hosted on **GitHub Pages** with a custom domain bought at **Namechea
 | `deployment.html` | Deployment options, Docker quick start, requirements, operations, stack |
 | `security.html` | Authentication, access control, data protection, audit log, safe scanning |
 | `request-demo.html` | Demo request form (mailto-based, see below) and contact details |
-| `privacy.html`, `terms.html` | Short **draft** legal pages — have counsel review before publishing |
+| `privacy.html`, `terms.html` | Privacy Policy and Terms of Use (last updated November 2, 2026) |
 | `404.html` | Not-found page (GitHub Pages serves it automatically) |
 | `sitemap.xml`, `robots.txt`, `CNAME`, `.nojekyll`, `favicon.svg` | Hosting / SEO files |
 
@@ -27,15 +27,15 @@ python3 -m http.server 8787
 # open http://localhost:8787
 ```
 
-## Things to set before going live (search for `TODO` / `example.com`)
+## Things to set before going live (search for `example.com`)
 
-1. **Domain** — the placeholder is `www.example.com`. Run `./set-domain.sh www.yourdomain.com`
+1. **Domain** - the placeholder is `www.example.com`. Run `./set-domain.sh www.yourdomain.com`
    (updates canonical/Open Graph URLs, `sitemap.xml`, `robots.txt` and `CNAME`).
-2. **Contact email** — `sales@threatlark.com` (taken from the previous site) appears on the demo
+2. **Contact email** - `sales@threatlark.com` (taken from the previous site) appears on the demo
    and legal pages and in `data-mailto`. Replace it everywhere:
    `grep -rl 'sales@threatlark.com' . | xargs sed -i 's/sales@threatlark.com/you@yourdomain.com/g'`
-3. **Demo form handling** — see below.
-4. **Legal pages** — `privacy.html` and `terms.html` are drafts marked with a TODO banner.
+3. **Demo form handling** - see below.
+4. **Legal pages** - `privacy.html` and `terms.html` are complete. If your legal entity name, registered address or governing jurisdiction should be named explicitly, add them before publishing.
 5. Review all copy against the current ThreatLark release before publishing.
 
 ### Demo form handling
@@ -44,7 +44,7 @@ python3 -m http.server 8787
 opens the visitor's mail client; without JavaScript the form falls back to a plain `mailto:` action.
 Nothing is sent to any third party. If you want real submissions without relying on a mail client,
 point the `<form>` at a form service (Formspree, Basin, Netlify Forms, …) and remove the
-submit handler at the bottom of `js/main.js`. Update `privacy.html` if you do.
+submit handler at the bottom of `js/main.js`. Update the Privacy Policy (`privacy.html`) if you do.
 
 ## Deploy on GitHub Pages
 
@@ -82,7 +82,7 @@ Notes:
 - Prefer the bare domain as primary? Put `yourdomain.com` in `CNAME` (and re-run `./set-domain.sh yourdomain.com`).
   The `www` CNAME record still redirects to it.
 - The CNAME **target is always `<github-username>.github.io`** (`samhaxr.github.io`), even for a project repository.
-- DNS changes usually take minutes but can take up to 24–48 hours. Check with
+- DNS changes usually take minutes but can take up to 24-48 hours. Check with
   `dig www.yourdomain.com +noall +answer` and `dig yourdomain.com +noall +answer`.
 
 ## Updating screenshots

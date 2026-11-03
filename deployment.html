@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Deployment & specifications — ThreatLark</title>
+<title>Deployment & specifications | ThreatLark</title>
 <meta name="description" content="Deploy ThreatLark with one-command Docker, a distro-aware installer for Kali/Debian and RHEL, or the Chrome/Edge extension. Requirements, stack and operations.">
 <meta name="theme-color" content="#1E1B4B">
 <link rel="canonical" href="https://www.example.com/deployment.html">
@@ -12,14 +12,14 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ThreatLark">
-<meta property="og:title" content="Deployment & specifications — ThreatLark">
+<meta property="og:title" content="Deployment & specifications | ThreatLark">
 <meta property="og:description" content="Deploy ThreatLark with one-command Docker, a distro-aware installer for Kali/Debian and RHEL, or the Chrome/Edge extension. Requirements, stack and operations.">
 <meta property="og:url" content="https://www.example.com/deployment.html">
 <meta property="og:image" content="https://www.example.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Deployment & specifications — ThreatLark">
+<meta name="twitter:title" content="Deployment & specifications | ThreatLark">
 <meta name="twitter:description" content="Deploy ThreatLark with one-command Docker, a distro-aware installer for Kali/Debian and RHEL, or the Chrome/Edge extension. Requirements, stack and operations.">
 <meta name="twitter:image" content="https://www.example.com/assets/img/og-image.png">
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,19 +46,19 @@
   <div class="container">
     <p class="crumbs"><a href="index.html">Home</a> / Deployment</p>
     <h1>Deploy ThreatLark where your data lives</h1>
-    <p class="lead">Self-hosted by design. Run it in Docker, install it on a hardened Linux host, or add the browser extension &mdash; your scan data stays inside your environment.</p>
+    <p class="lead">Self-hosted by design. Run it in Docker, install it on a hardened Linux host, or add the browser extension. Your scan data stays inside your environment.</p>
   </div>
 </section>
 <section class="feature" id="options"><div class="container"><div class="section-head"><span class="kicker">Deployment options</span><h2>Three ways to run it</h2><p>Pick the model that suits your environment; Docker and direct installs are kept at feature parity.</p></div><div class="grid g3">
 <article class="card deploy-card" id="docker"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 12.5h19c0 4.2-3.5 7.5-8 7.5h-3c-4.5 0-8-3.3-8-7.5z"/><path d="M6 12.5V9h3v3.5M9 12.5V9h3v3.5M12 12.5V9h3v3.5M9 9V6h3v3"/></svg></div><span class="tag">Fastest start</span><h3>Docker</h3><p>One command builds and starts a complete instance. Every scanner binary is baked into the image, so the host needs only Docker and Docker Compose.</p></article>
 <article class="card deploy-card" id="installer"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 10 3 2-3 2M12 15h5"/></svg></div><span class="tag">Bare-metal / VM</span><h3>Distro-aware installer</h3><p><code>./install.sh</code> detects Kali/Debian or a RHEL-family distro, installs prerequisites, generates secrets and a TLS certificate, builds, migrates and starts the app. Safe to re-run. Pairs with in-app one-click updates.</p></article>
-<article class="card deploy-card" id="extension"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></svg></div><span class="tag">Chrome &amp; Edge</span><h3>Browser extension</h3><p>A Manifest V3 companion (served from the app behind authentication) that runs tech-detect, SSL/TLS, port scan, WHOIS and CVE lookups against the current tab through your signed-in session &mdash; no API keys stored in the extension.</p></article>
+<article class="card deploy-card" id="extension"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></svg></div><span class="tag">Chrome &amp; Edge</span><h3>Browser extension</h3><p>A Manifest V3 companion (served from the app behind authentication) that runs tech-detect, SSL/TLS, port scan, WHOIS and CVE lookups against the current tab through your signed-in session, with no API keys stored in the extension.</p></article>
 </div></div></section><section class="feature" id="docker-run"><div class="container"><div class="section-head"><span class="kicker">Docker quick start</span><h2>One command to a running instance</h2><p>The simplest way to run a complete instance.</p></div><div class="grid g2" style="align-items:start"><div>
 <h3>What the container does for you</h3>
 <ul class="checks">
-<li><strong>All scanner binaries baked in</strong> &mdash; nmap (with raw-socket capabilities), sslscan, whois, Chromium for PDF export, massdns, nuclei with its full template set, and the bundled recon tools. No runtime downloads.</li>
-<li><strong>First-boot self-configuration</strong> &mdash; generates persistent secrets and a local CA&rarr;leaf TLS certificate once, applies database migrations and creates the first-run admin.</li>
-<li><strong>One data volume</strong> &mdash; the encrypted database, secrets, TLS material and backups live in a single named volume, so <code>down</code>/<code>up</code> keeps your data.</li>
+<li><strong>All scanner binaries baked in:</strong> nmap (with raw-socket capabilities), sslscan, whois, Chromium for PDF export, massdns, nuclei with its full template set, and the bundled recon tools. No runtime downloads.</li>
+<li><strong>First-boot self-configuration:</strong> generates persistent secrets and a local CA&rarr;leaf TLS certificate once, applies database migrations and creates the first-run admin.</li>
+<li><strong>One data volume:</strong> the encrypted database, secrets, TLS material and backups live in a single named volume, so <code>down</code>/<code>up</code> keeps your data.</li>
 </ul></div><div><pre class="code" tabindex="0"><span class="c"># build and start a complete instance</span>
 git clone &lt;your-clone-url&gt; ThreatLark &amp;&amp; cd ThreatLark
 docker compose up -d --build
@@ -73,26 +73,26 @@ docker compose logs | grep -A4 FIRST-RUN
 <tr><td><code>ALLOW_PRIVATE_TARGETS</code></td><td>Allow scanning private/RFC1918 targets (typical for internal assessments)</td><td>true</td></tr>
 </tbody></table></div></div></div></div></section><section class="feature" id="requirements"><div class="container"><div class="section-head"><span class="kicker">Requirements</span><h2>What you need</h2><p>Docker needs nothing on the host but Docker itself; a direct install needs a few system tools.</p></div><div class="grid g2"><div class="tbl-wrap"><table class="tbl"><thead><tr><th colspan="2">Docker deployment</th></tr></thead><tbody>
 <tr><td>Host</td><td>Linux with Docker and Docker Compose</td></tr>
-<tr><td>Scanner tooling</td><td>None required on the host &mdash; baked into the image</td></tr>
+<tr><td>Scanner tooling</td><td>None required on the host, baked into the image</td></tr>
 <tr><td>Network</td><td>Reach to the ranges you are authorized to scan</td></tr></tbody></table></div>
 <div class="tbl-wrap"><table class="tbl"><thead><tr><th colspan="2">Bare-metal deployment</th></tr></thead><tbody>
 <tr><td>Runtime</td><td>Node.js 24+ and npm</td></tr>
 <tr><td>Platform</td><td>Linux x86_64 (for the bundled scanner binaries); Kali/Debian and RHEL families supported by the installer</td></tr>
 <tr><td>Host tools</td><td><code>whois</code>, <code>ping</code>, <code>free</code>, <code>df</code>; <code>chromium</code> or Google Chrome for PDF export; <code>massdns</code> for active subdomain brute-forcing</td></tr></tbody></table></div></div>
-<div class="callout">Where a Debian-only binary is unavailable, the affected tool degrades gracefully &mdash; for example, the SSL/TLS scanner falls back to an nmap engine when <code>sslscan</code> is not installed.</div></div></section><section class="feature" id="operations"><div class="container"><div class="section-head"><span class="kicker">Operations</span><h2>Run it like production software</h2><p>Day-two features are built in.</p></div><div class="grid g3">
+<div class="callout">Where a Debian-only binary is unavailable, the affected tool degrades gracefully. For example, the SSL/TLS scanner falls back to an nmap engine when <code>sslscan</code> is not installed.</div></div></section><section class="feature" id="operations"><div class="container"><div class="section-head"><span class="kicker">Operations</span><h2>Run it like production software</h2><p>Day-two features are built in.</p></div><div class="grid g3">
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4M12 15.5v2"/></svg></div><h3>TLS out of the box</h3><p>A local CA&rarr;leaf certificate is issued on first boot. Install your own CA-signed certificate from the admin panel with no restart, or terminate TLS at a reverse proxy.</p></article>
 <article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Backup &amp; restore</h3><p>AES-256-GCM encrypted snapshots on demand or on a schedule, with optional push to remote SSH/SFTP targets. Restores require re-entering the admin password.</p></article>
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg></div><h3>In-app updates</h3><p>On supervised installs, one click backs up the database, pulls the new release, rebuilds and restarts. Docker deployments redeploy the image instead.</p></article>
 <article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.2 3.2 3.2 14.8 0 18M12 3c-3.2 3.2-3.2 14.8 0 18"/></svg></div><h3>Corporate proxy support</h3><p>Route outbound scanning and threat-intel traffic through your HTTP, HTTPS or SOCKS proxy, applied live. Raw TCP/UDP/ICMP tools such as nmap bypass it by nature.</p></article>
 <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></div><h3>Operational visibility</h3><p>Live server health (CPU, memory, disk, database size) and background-scheduler heartbeats show whether scheduled scans and backups are running.</p></article>
-<article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></svg></div><h3>Offline licensing</h3><p>Licence keys are signed tokens verified locally &mdash; no phone-home &mdash; so a licensed instance works on isolated networks.</p></article>
+<article class="card"><div class="icon-box teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></svg></div><h3>Offline licensing</h3><p>Licence keys are signed tokens verified locally with no phone-home, so a licensed instance works on isolated networks.</p></article>
 </div></div></section><section class="feature" id="stack"><div class="container"><div class="section-head"><span class="kicker">Stack</span><h2>Built on a conventional, auditable stack</h2><p>Open standards and mainstream components throughout.</p></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Layer</th><th>Technology</th></tr></thead><tbody>
-<tr><td>Frontend</td><td>React + TypeScript, Vite, Tailwind CSS, TanStack Query, Recharts &mdash; a single-page app served by the same process</td></tr>
+<tr><td>Frontend</td><td>React + TypeScript, Vite, Tailwind CSS, TanStack Query, Recharts (a single-page app served by the same process)</td></tr>
 <tr><td>Backend</td><td>Node.js + TypeScript, Express, Prisma ORM</td></tr>
-<tr><td>Database</td><td>Encrypted libSQL / SQLite &mdash; an embedded file, no separate database container</td></tr>
+<tr><td>Database</td><td>Encrypted libSQL / SQLite, an embedded file with no separate database container</td></tr>
 <tr><td>Auth</td><td>Argon2id, server-side sessions, CSRF double-submit cookie, TOTP MFA, WebAuthn, hash-chained audit log</td></tr>
 <tr><td>Reports</td><td>Headless Chromium for PDF rendering</td></tr>
-<tr><td>Testing / CI</td><td>Vitest unit tests and GitHub Actions</td></tr>
+<tr><td>Testing / CI</td><td>Vitest unit tests and continuous integration</td></tr>
 </tbody></table></div></div></section><div class="cta-wrap"><div class="container"><div class="cta-card">
   <div><h2>Planning a deployment?</h2><p>Tell us about your environment and we will walk through sizing, network placement and access control.</p></div>
   <a class="btn btn-teal" href="request-demo.html">Request a demo</a>
